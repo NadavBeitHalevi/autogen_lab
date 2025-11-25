@@ -24,8 +24,12 @@ MANIFEST
 
 # Virtual Env
 .env
+.env.local
+.env.development.local
+.env.test.local
+!.env.example
 .venv
-env/
+env/*
 venv/
 ENV/
 env.bak/
