@@ -3,8 +3,18 @@
 This repository appears to be a new project focused on AutoGen or agentic workflows.
 
 ## Project Context
-- **Architecture**: Likely event-driven or multi-agent conversation patterns.
+- **Architecture**: Multi-agent conversation system simulating a "Parliament" group meeting.
+- **Domain**: A group of friends meeting at a coffee house to discuss weekly topics with humor and specific personality traits.
 - **Primary Language**: Python (Standard for AutoGen).
+
+## Defined Personas (from `src/config.toml`)
+- **Shauli**: Group leader, humorous, self-centered facilitator.
+- **Amatzia**: Taxi driver, authentic, street-smart, socially conscious.
+- **Karakov**: Retired zoo feeder, quiet, dark humor, to-the-point.
+- **Hektor**: Dentist (Argentinian origin), seeks justice/order, sometimes irrelevant.
+- **Avi**: Unemployed, sarcastic, confrontational, chaotic ideas.
+- **Scripter**: Generates the initial dialogue script (British humor style).
+- **Translator**: Translates the script to Hebrew and handles file I/O.
 
 ## Code Style & Conventions
 - **Type Hinting**: Strictly enforce Python type hints (`typing` module) for better AI analysis.
