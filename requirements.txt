@@ -4,3 +4,6 @@ autogen-ext[openai,azure]
 openai
 google-genai
 toml
+azure-ai-inference 
+opentelemetry-sdk 
+opentelemetry-instrumentation-openai-v2

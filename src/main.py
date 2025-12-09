@@ -10,7 +10,27 @@ from google import genai
 from google.genai import types
 from PIL import Image
 import io
+from openai import OpenAI
+
 from autogen_core.models import ModelInfo, ModelFamily
+
+# for tracing
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
+from opentelemetry.instrumentation.openai_v2 import OpenAIInstrumentor
+
+# setup tracing
+# 1. Set up the "Console Tracer"
+tracer_provider = TracerProvider()
+trace.set_tracer_provider(tracer_provider)
+tracer = trace.get_tracer_provider().get_tracer(__name__)
+tracer_provider.add_span_processor(
+    SimpleSpanProcessor(ConsoleSpanExporter())  # <--- This prints to your terminal
+)
+
+# 2. Enable automatic instrumentation
+OpenAIInstrumentor().instrument()
 
 # Load environment variables from .env file with override
 dotenv.load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'), override=True)
@@ -39,6 +59,7 @@ async def main() -> None:
     if not all([azure_api_key, azure_api_version, azure_endpoint, azure_deployment_name]):
         print("Azure credentials are not fully configured. Skipping Azure agent.")
     else:
+        assert azure_deployment_name is not None and azure_api_key is not None and azure_api_version is not None and azure_endpoint is not None  # Type narrowing for type checker
         azure_client = AzureOpenAIChatCompletionClient(
             model=azure_deployment_name,
             api_key=azure_api_key,
@@ -125,6 +146,17 @@ async def main() -> None:
         response = await openai_agent.on_messages([message], cancellation_token=CancellationToken())
         if response and response.chat_message and hasattr(response.chat_message, 'content'):
             print(f"OpenAI response: {response.chat_message.content}")
+
+    # Now create OpenAI agent
+    client = OpenAI()
+    print("Running OpenAI GPT-5 with Web Search Tool...")
+    response = client.responses.create(
+        model="gpt-5",
+        tools=[{"type": "web_search"}],
+        input="What was a positive news story from today?"
+    )
+    print("OpenAI GPT-5 response with Web Search Tool:")
+    print(response.output_text)
     
 if __name__ == "__main__":
     asyncio.run(main())
