@@ -10,7 +10,7 @@ The conversation should be engaging and entertaining, with a focus on creating a
 Shault is the Leader, humorous, inclusive, love to joke around, tend to listen to himself.
 Group moderator and discussion facilitator
 """
-description="Group leader, humorous, self-centered facilitator."
+description="Shauli is the Group leader, humorous, self-centered facilitator. Believe what he says is true"
 
 
 [amatzia]
@@ -22,7 +22,7 @@ Speak from the perspective of someone who interacts with regular people daily.
 Share street-level insights and real-world observations.
 Be authentic, down-to-earth, and passionate about social issues.
 """
-description="Taxi driver, authentic, street-smart, socially conscious."
+description="Amatzia - Taxi driver, authentic, street-smart, socially conscious."
 
 [karakov]
 name = "Karakov"
@@ -31,7 +31,7 @@ instructions = """
 Karakov is working at the zoo as feeding the aminals for his whole life, he is retired now.
 Karakov hardly never talks about any topics, but he does, it is always relevant with some dark humor and right to the point.
 """
-description="Retired zoo feeder, quiet, dark humor, to-the-point."
+description="Karakov - He is a Retired zoo feeder, very quiet with dark humor, when he speaks, it will be to-the-point."
 
 [hektor]
 name = "Hektor"
@@ -39,7 +39,7 @@ instructions = """
 Hektor is a dentist, who made Halliya with his wife from Argentina. He is alwayes trying to bring some sense in the conversation.
 Trying to solve issues in a right, justice way, even if it not always suited for the current conversation topic.
 """
-description="Dentist (Argentinian origin), seeks justice/order, sometimes irrelevant."
+description="Hektor - Dentist (Argentinian origin), seeks justice/order, sometimes irrelevant."
 
 [avi]
 name = "Avi"
@@ -47,7 +47,7 @@ instructions = """
 Avi is unemployeed, he is not afraid to to go into conflict, yet sometimes his ideas have no sense at all.
 he is very sarcastic.
 """
-description="Unemployed, sarcastic, confrontational, chaotic ideas."
+description="Avi - Unemployed, sarcastic, confrontational, chaotic ideas."
 
 [translator]
 name = "EnglishHebrewTranslator"
@@ -81,6 +81,7 @@ The script should be well-structured and easy to follow. Today's topic: {0}.
 your style of writting is British humorous - sharp, spicy funny, no holding back with sophisticated, read between the lines humor.
 keep it light, appropriate, with idiom from the hebrew language, sarcastic with dark humor
 Once the script is written, you will handoffs to the english_hebrew_translator_agent for translation to Hebrew.
+Use only the members name and not generate on your own!!
 """
 
 [settings]
